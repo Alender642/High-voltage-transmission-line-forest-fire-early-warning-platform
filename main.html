@@ -98,24 +98,6 @@
             margin: 0 auto 15px;
         }
 
-        /* 视频占位图 */
-        .video-placeholder {
-            height: 300px;
-            background: url("C:/Users/Lenovo/Pictures/Screenshots/屏幕截图 2025-02-09 153826.png") center/cover;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .video-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 15px;
-            color: white;
-        }
-
         /* 操作按钮 */
         .action-buttons {
             display: flex;
@@ -140,7 +122,7 @@
                 transform: translateY(-2px);
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             }
-            /* 使用自定义图标 */
+
             .action-btn img {
                 width: 20px;
                 height: 20px;
@@ -172,17 +154,16 @@
             <h3 style="color: #2c3e50; margin-top: 0;">输电线路实时监测图</h3>
             <div id="map" style="height: 500px; border-radius: 8px;"></div>
             <div class="action-buttons">
-                <!-- 自定义按钮图标示例，使用本地图片（请确保图片路径正确） -->
                 <button class="action-btn" aria-label="刷新数据">
-                    <img src="刷新.svg" alt="刷新">
+                    <img src="E:/web/刷新.png" alt="刷新">
                     <span>刷新数据</span>
                 </button>
                 <button class="action-btn" aria-label="切换视图">
-                    <img src="地图.svg" alt="地图">
+                    <img src="E:/web/地图.png" alt="地图">
                     <span>切换视图</span>
                 </button>
                 <button class="action-btn" aria-label="系统设置">
-                    <img src="设 置.svg" alt="设置">
+                    <img src="E:/web/设置.png" alt="设置">
                     <span>系统设置</span>
                 </button>
             </div>
@@ -190,42 +171,31 @@
 
         <!-- 视频监控区 -->
         <div class="video-area">
-    <h3 style="margin-top: 0;">实时监控画面</h3>
-    <!-- 使用 Bilibili 的 iframe 嵌入视频 -->
-    <div class="video-placeholder">
-        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114074264277687&bvid=BV1wBPHewEAd&cid=28599189541&p=1" 
-                scrolling="no" 
-                border="0" 
-                frameborder="no" 
-                framespacing="0" 
-                allowfullscreen="true" 
-                style="width: 100%; height: 100%; border-radius: 8px;">
-        </iframe>
-        <div class="video-overlay">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <img src="摄像头.svg" style="width: 30px; filter: invert(1);" alt="摄像头">
-                <div>摄像头 #025 在线</div>
+            <h3 style="margin-top: 0;">实时监控画面</h3>
+            <!-- 使用 Bilibili 的 iframe 嵌入视频 -->
+            <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114074264277687&bvid=BV1wBPHewEAd&cid=28599189541&p=1" 
+                    scrolling="no" 
+                    frameborder="no" 
+                    allowfullscreen="true" 
+                    style="width: 100%; height: 300px; border-radius: 8px;">
+            </iframe>
+            <div style="margin-top: 20px;">
+                <h4>设备状态</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <img src="E:/web/温度.png" style="width: 24px;" alt="温度传感器">
+                        <span>温度传感器</span>
+                        <span style="color: #4CAF50; margin-left: auto;">正常</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <img src="E:/web/风速.png" style="width: 24px;" alt="风速传感器">
+                        <span>风速传感器</span>
+                        <span style="color: #4CAF50; margin-left: auto;">正常</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div style="margin-top: 20px;">
-        <h4>设备状态</h4>
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <img src="温度传感器.svg" style="width: 24px;" alt="温度传感器">
-                <span>温度传感器</span>
-                <span style="color: #4CAF50; margin-left: auto;">正常</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <img src="风速.svg" style="width: 24px;" alt="风速传感器">
-                <span>风速传感器</span>
-                <span style="color: #4CAF50; margin-left: auto;">正常</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
     <!-- 预警信息 -->
     <div class="alert-list">
@@ -233,37 +203,29 @@
         <ul style="list-style: none; padding: 0; margin: 0;">
             <li style="padding: 15px; margin: 10px 0; background: #fff; border-radius: 8px;
     display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                <img src="警报.svg" style="width: 30px;" alt="紧急预警">
-                <!-- 使用 flex: 1 使文本区域占据剩余空间 -->
+                <img src="E:/web/报警,警报,报警灯,危险.png" style="width: 30px;" alt="紧急预警">
                 <div style="flex: 1;">
                     <div style="color: #F44336; font-weight: bold;">[紧急] 02号杆塔周边发现热源</div>
                     <div style="font-size: 0.9em; color: #666;">2023-10-01 14:25 | 温度异常: 68℃</div>
                 </div>
-                <!-- 按钮放在最后，并调大尺寸 -->
                 <button style="padding: 10px 20px; font-size: 16px; background: #F44336; color: #fff;
-            border: none; border-radius: 4px; cursor: pointer;"
-                        onclick="window.location.href='video.html';">
+            border: none; border-radius: 4px; cursor: pointer;" onclick="window.location.href='video.html';">
                     立即查看
                 </button>
             </li>
 
-
             <li style="padding: 15px; margin: 10px 0; background: #fff; border-radius: 8px;
     display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                <img src="警告.svg" style="width: 30px;" alt="警告预警">
-                <!-- 文本区域使用 flex: 1 占据剩余空间 -->
+                <img src="E:/web/警告.png" style="width: 30px;" alt="警告预警">
                 <div style="flex: 1;">
                     <div style="color: #FFC107; font-weight: bold;">[警告] 15号区段湿度异常</div>
                     <div style="font-size: 0.9em; color: #666;">2023-10-01 14:20 | 湿度值: 12%</div>
                 </div>
-                <!-- 添加相同的“立即查看”按钮 -->
                 <button style="padding: 10px 20px; font-size: 16px; background: #F44336; color: #fff;
-            border: none; border-radius: 4px; cursor: pointer;"
-                        onclick="window.location.href='new_page.html';">
+            border: none; border-radius: 4px; cursor: pointer;" onclick="window.location.href='new_page.html';">
                     立即查看
                 </button>
             </li>
-
         </ul>
     </div>
 
@@ -291,66 +253,13 @@
         </div>
     </div>
 
-    <!-- Leaflet 地图 JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // 修改地图位置：将地图中心定位在秦岭山区（示例坐标：34.3, 107.3）
         const map = L.map('map').setView([30.680979467955904, 104.14508102647854], 12);
 
-        // 添加地图图层
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-
-        // 修改输电线路数据
-        const powerLines = [
-            {
-                coords: [[30.680979467955904, 104.14508102647854], [30.685, 104.150], [30.690, 104.155]],
-                status: 'normal'
-            },
-            {
-                coords: [[30.680979467955904, 104.14508102647854], [30.675, 104.140], [30.670, 104.135]],
-                status: 'warning'
-            }
-        ];
-
-        // 绘制线路和杆塔标记
-        powerLines.forEach(line => {
-            const color = line.status === 'normal' ? '#4CAF50' : '#FFC107';
-
-            L.polyline(line.coords, {
-                color: color,
-                weight: 4,
-                dashArray: line.status === 'warning' ? '8, 8' : null
-            }).addTo(map);
-
-            // 添加新的输电杆塔图标
-            line.coords.forEach((coord, index) => {
-                L.marker(coord, {
-                    icon: L.icon({
-                        iconUrl: '定位.svg', // 替换为新图标
-                        iconSize: [32, 32],
-                        iconAnchor: [16, 32],
-                        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-                        shadowSize: [41, 41]
-                    })
-                }).addTo(map)
-                    .bindPopup(`<b>杆塔 #${index + 1}</b><br>状态：${line.status === 'normal' ? '正常' : '预警'}<br>最后检测：${new Date().toLocaleString()}`);
-            });
-        });
-
-        // 添加新的火灾预警点
-        L.marker([30.680979467955904, 104.14508102647854], {
-            icon: L.icon({
-                iconUrl: 'E:/web/定位001.png', // 替换为你的新图标
-                iconSize: [40, 40],
-                iconAnchor: [20, 40],
-                shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-                shadowSize: [41, 41]
-            })
-        }).addTo(map)
-            .bindPopup('<b>火灾预警点</b><br>温度：68℃');
-
     </script>
 </body>
 </html>
