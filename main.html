@@ -172,7 +172,6 @@
         <!-- 视频监控区 -->
         <div class="video-area">
             <h3 style="margin-top: 0;">实时监控画面</h3>
-            <!-- 使用 Bilibili 的 iframe 嵌入视频 -->
             <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114074264277687&bvid=BV1wBPHewEAd&cid=28599189541&p=1" 
                     scrolling="no" 
                     frameborder="no" 
@@ -260,6 +259,12 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+
+        // 在指定位置添加标记
+        L.marker([30.680868542638887, 104.14513395352229])
+            .addTo(map)
+            .bindPopup('<b>发现可疑热源</b><br>温度：68℃')
+            .openPopup();
     </script>
 </body>
 </html>
