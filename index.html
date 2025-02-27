@@ -16,6 +16,7 @@
             height: 100vh;
             overflow: hidden;
         }
+
         /* 背景图片容器 */
         .image-background {
             position: fixed;
@@ -27,6 +28,7 @@
             background-size: cover;
             z-index: -1;
         }
+
         /* 使用Flex居中登录容器 */
         .login-page {
             display: flex;
@@ -35,6 +37,7 @@
             height: 100vh;
             position: relative;
         }
+
         /* 登录容器 */
         .login-container {
             width: 400px;
@@ -47,12 +50,14 @@
             flex-direction: column;
             gap: 20px;
         }
+
         /* 登录标题 */
         .login-title {
             text-align: center;
             font-size: 1.8em;
             font-weight: bold;
         }
+
         /* 输入框样式 */
         .input-field {
             display: flex;
@@ -60,31 +65,32 @@
             gap: 5px;
         }
 
-            .input-field label {
-                font-size: 0.9em;
-                color: #ddd;
-            }
+        .input-field label {
+            font-size: 0.9em;
+            color: #ddd;
+        }
 
-            .input-field input {
-                height: 40px;
-                padding: 8px;
-                font-size: 1em;
-                border: 1px solid #555;
-                border-radius: 4px;
-                background: rgba(255, 255, 255, 0.1);
-                color: #fff;
-                transition: border-color 0.3s, background 0.3s;
-            }
+        .input-field input {
+            height: 40px;
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: border-color 0.3s, background 0.3s;
+        }
 
-                .input-field input::placeholder {
-                    color: #ccc;
-                }
+        .input-field input::placeholder {
+            color: #ccc;
+        }
 
-                .input-field input:focus {
-                    border-color: #66bb6a;
-                    outline: none;
-                    background: rgba(255, 255, 255, 0.2);
-                }
+        .input-field input:focus {
+            border-color: #66bb6a;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         /* 登录按钮 */
         .login-button {
             width: 100%;
@@ -98,10 +104,11 @@
             transition: background 0.3s, transform 0.2s;
         }
 
-            .login-button:hover {
-                background: #3b55cc;
-                transform: translateY(-2px);
-            }
+        .login-button:hover {
+            background: #3b55cc;
+            transform: translateY(-2px);
+        }
+
         /* 额外选项 */
         .options {
             display: flex;
@@ -112,14 +119,14 @@
             margin-top: -5px;
         }
 
-            .options a {
-                color: #66bb6a;
-                text-decoration: none;
-            }
+        .options a {
+            color: #66bb6a;
+            text-decoration: none;
+        }
 
-                .options a:hover {
-                    text-decoration: underline;
-                }
+        .options a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -130,7 +137,7 @@
     <div class="login-page">
         <div class="login-container">
             <div class="login-title">山火预警系统</div>
-            <form id="loginForm" action="index.html" method="POST">
+            <form id="loginForm">
                 <div class="input-field">
                     <label for="username">用户名</label>
                     <input type="text" id="username" name="username" placeholder="请输入用户名" required>
@@ -153,10 +160,16 @@
     <script>
         // 前端验证：只有用户名为"Admin"且密码为"123456"时允许登录，否则提示错误
         document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // 阻止表单默认提交行为
+
             var username = document.getElementById("username").value.trim();
             var password = document.getElementById("password").value.trim();
-            if (username !== "Admin" || password !== "123456") {
-                e.preventDefault(); // 阻止表单提交
+
+            // 验证用户名和密码
+            if (username === "Admin" && password === "123456") {
+                // 登录成功，跳转到 main.html
+                window.location.href = "main.html"; 
+            } else {
                 alert("用户名或密码错误！");
             }
         });
